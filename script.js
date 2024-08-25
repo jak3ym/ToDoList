@@ -19,7 +19,7 @@ function addTask() {
 }
 
 inputBox.addEventListener('keydown', function(e) {
-    if(event.key === 'Enter') {
+    if(e.key === 'Enter') {
         addButton.click();
     }
 })
