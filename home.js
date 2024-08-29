@@ -18,6 +18,23 @@ function addTask() {
     saveData();
 }
 
+function enterDetails() {
+    if(inputBox.value === '') {
+        alert("Need to write something!");
+    }
+    else{
+        let li = document.createElement("li"); // creates document called li
+        li.innerHTML = inputBox.value; // innerHTML is the text inside li
+        listContainer.appendChild(li); // li will be displayed in listContainer
+        let deleteButton = document.createElement("deleteButton");
+        deleteButton.innerHTML = "\u00d7"; // cross item
+        li.appendChild(deleteButton);
+    }
+    inputBox.value = ""; // clears input box after clicking add
+    saveData();
+    window.location.href = "details.html"
+}
+
 inputBox.addEventListener('keydown', function(e) {
     if(e.key === 'Enter') {
         addButton.click();
