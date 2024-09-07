@@ -7,7 +7,7 @@
     </head>
     <body>
     <div class="container">
-        <div class="todo-app">
+        <div class="details-app">
             <h2>To Do List <img src="images/icon.png"></h2>
             <h3>Task</h3>
             <div class="rowDetails">
@@ -17,13 +17,15 @@
             <div class="rowDetails">
                 <input type="text" id="input-box" placeholder="Add your text">
             </div>
-            <!-- <ul id="list-container"> -->
+            <button id="cancel-button" onclick="returnToHome()">Cancel</button>
+            <button id="save-button" onclick="saveDetails()">Save</button>
+            <ul id="list-container">
                 <!-- <li class="checked">Task 1</li>
                 <li>Task 2</li>
                 <li>Task 3</li> -->
             </ul>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="details.js"></script>
     </body>
 </html> 

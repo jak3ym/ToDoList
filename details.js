@@ -18,7 +18,19 @@ function addTask() {
     saveData();
 }
 
+function saveDetails() {
+    window.location.href = "home.html"
+}
+
 function returnToHome() {
+    const listContainer = document.getElementById('listContainer');
+    if (listContainer) {
+        const lastListItem = listContainer.querySelector('li:last-child');
+        if (lastListItem) {
+            lastListItem.remove();
+        }
+    }
+    saveData();
     window.location.href = "home.html"
 }
 
@@ -28,28 +40,46 @@ inputBox.addEventListener('keydown', function(e) {
     }
 })
 
-listContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "LI") { // checks if e.target element is an 'li' element
-        e.target.classList.toggle("checked"); // toggles the checked class on that element, adds if not present, removes if present
-        saveData()
-    }
-    else if(e.target.tagName === "DELETEBUTTON") {
-        e.target.parentElement.remove();
-        saveData()
-    }
-}, false);
+// listContainer.addEventListener("click", function(e){
+//     if(e.target.tagName === "LI") { // checks if e.target element is an 'li' element
+//         e.target.classList.toggle("checked"); // toggles the checked class on that element, adds if not present, removes if present
+//         saveData()
+//     }
+//     else if(e.target.tagName === "DELETEBUTTON") {
+//         e.target.parentElement.remove();
+//         saveData()
+//     }
+// }, false);
 
-listContainer.addEventListener('DOMContentLoaded', () => {
-    const inputBox = listContainer.getElementById('input-box');
+document.addEventListener('DOMContentLoaded', () => {
+    const inputBox = document.getElementById('input-box');
     inputBox.value = showCurrentTask();
 });
 
-function saveData() {
-    localStorage.setItem("ListInfo", listContainer.innerHTML);
+function showCurrentTask() {
+    task = localStorage.getItem("ListInfo");
+    //console.log("Retrieved task:", task);
+    if (task) {
+        // Create a temporary container to parse the HTML string
+        const tempContainer = document.createElement('div');
+        tempContainer.innerHTML = task;
+        
+        // Get all list items
+        const listItems = tempContainer.getElementsByTagName('li');
+        
+        // Return the innerHTML of the last list item
+        if (listItems.length > 0) {
+            const lastItemText = listItems[listItems.length - 1].textContent;
+            const cleanedText = lastItemText.replace('×', '').trim();
+            console.log(cleanedText);
+            return cleanedText;
+        }
+    }
+    return null;
 }
 
-function showCurrentTask() {
-    return localStorage.getItem("ListInfo");
+function saveData() {
+    localStorage.setItem("ListInfo", listContainer.innerHTML);
 }
 
 // function showList() {

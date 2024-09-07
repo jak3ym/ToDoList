@@ -15,7 +15,7 @@ function addTask() {
         li.appendChild(deleteButton);
     }
     inputBox.value = ""; // clears input box after clicking add
-    saveData();
+    // saveData();
 }
 
 function enterDetails() {

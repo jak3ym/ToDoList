@@ -53,6 +53,9 @@
     padding-left: 20px;
     margin-bottom: 10px;
 }
+#input-box {
+    text-align: center;
+}
 input{
     flex: 1;
     border: none;
@@ -70,6 +73,28 @@ button{
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
+}
+#cancel-button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #cf7b1b;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    float: left;
+}
+#save-button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #cf7b1b;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    float: right;
 }
 ul li{
     list-style: none;
@@ -112,4 +137,33 @@ ul li deleteButton {
 }
 ul li deleteButton:hover{
     background: #edeef0;
+}
+
+.details-app {
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+    text-align: center;
+}
+.details-app h3{
+    color: #430943;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.details-app h2{
+    color: #8d0f24;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.details-app h2 img{
+    width: 30px;
+    margin-left: 10px;
 }
