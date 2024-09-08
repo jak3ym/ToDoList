@@ -1,0 +1,12 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "main": "details.js",
+  "scripts": {
+    "acceptance": "python acceptance.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
