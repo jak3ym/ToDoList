@@ -4,7 +4,10 @@
   "main": "home.js",
   "scripts": {
     "build": "next build",
-    "test": "jest unittest.js"
+    "test": "jest"
+  },
+  "jest": {
+    "testMatch": ["**/?(*.)+(spec|test).[tj]s?(x)"]
   },
   "keywords": [],
   "author": "",
