@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "details.js",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "next lint",
     "acceptance": "python acceptance.py"
   },
   "keywords": [],
