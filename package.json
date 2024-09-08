@@ -6,6 +6,9 @@
     "build": "next build",
     "test": "jest unit.test.js"
   },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
