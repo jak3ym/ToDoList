@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>To Do List App</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="container">
+        <div class="details-app">
+            <h2>To Do List <img src="images/icon.png"></h2>
+            <h3>Task</h3>
+            <div class="rowDetails">
+                <input type="text" id="input-box">
+            </div>
+            <h3>When is it due?</h3>
+            <div class="rowDetails">
+                <input type="text" id="input-box" placeholder="Add your text">
+            </div>
+            <button id="cancel-button" onclick="returnToHome()">Cancel</button>
+            <button id="save-button" onclick="saveDetails()">Save</button>
+            <ul id="list-container">
+                <!-- <li class="checked">Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li> -->
+            </ul>
+        </div>
+    </div>
+    <script src="details.js"></script>
+    </body>
+</html> 
