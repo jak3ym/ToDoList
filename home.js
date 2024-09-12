@@ -60,3 +60,5 @@ function showList() {
     listContainer.innerHTML = localStorage.getItem("ListInfo");
 }
 showList();
+
+module.exports = { addTask, enterDetails, saveData, showList };
