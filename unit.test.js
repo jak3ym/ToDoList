@@ -26,12 +26,21 @@ const localStorageMock = (() => {
 })();
 Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 
+// Mock window.location
+const originalLocation = window.location;
+delete window.location;
+window.location = { href: jest.fn() };
+
 describe('To-Do List App', () => {
   beforeEach(() => {
     localStorage.clear();
     listContainer.innerHTML = '';
     inputBox.value = '';
   });
+
+  afterAll(() => {
+    window.location = originalLocation;
+  }  
 
   test('addTask should add a task to the list', () => {
     inputBox.value = 'New Task';
@@ -52,7 +61,7 @@ describe('To-Do List App', () => {
     enterDetails();
     expect(listContainer.children.length).toBe(1);
     expect(listContainer.children[0].textContent).toContain('New Task');
-    expect(window.location.href).toContain('details.html');
+    expect(window.location.href).toBe('details.html');
   });
 
   test('saveData should save the list to localStorage', () => {
