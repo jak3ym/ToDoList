@@ -40,7 +40,7 @@ describe('To-Do List App', () => {
 
   afterAll(() => {
     window.location = originalLocation;
-  }  
+  }); 
 
   test('addTask should add a task to the list', () => {
     inputBox.value = 'New Task';
