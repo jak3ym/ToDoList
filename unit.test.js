@@ -3,7 +3,7 @@
 // Mock the DOM elements
 document.body.innerHTML = `
   <input type="text" id="input-box" placeholder="Add your text">
-  <button id="add-button">Add</button>
+  <button id="add-button" onclick="addTask()">Add</button>
   <ul id="list-container"></ul>
 `;
 
@@ -12,7 +12,7 @@ const listContainer = document.getElementById("list-container");
 const addButton = document.getElementById("add-button");
 
 // Import the functions to be tested
-const { addTask, enterDetails, saveData, showList } = require('./home');
+const { addTask, saveData, showList } = require('./home');
 
 // Mock localStorage
 const localStorageMock = (() => {
@@ -42,11 +42,12 @@ describe('To-Do List App', () => {
     window.location = originalLocation;
   }); 
 
-  test('addTask should add a task to the list', () => {
+  test('addTask should add a task to the list and navigate to details.html', () => {
     inputBox.value = 'New Task';
     addTask();
     expect(listContainer.children.length).toBe(1);
     expect(listContainer.children[0].textContent).toContain('New Task');
+    expect(window.location.href).toBe('details.html');
   });
 
   test('addTask should alert if input is empty', () => {
@@ -54,14 +55,6 @@ describe('To-Do List App', () => {
     inputBox.value = '';
     addTask();
     expect(window.alert).toHaveBeenCalledWith('Need to write something!');
-  });
-
-  test('enterDetails should add a task and navigate to details.html', () => {
-    inputBox.value = 'New Task';
-    enterDetails();
-    expect(listContainer.children.length).toBe(1);
-    expect(listContainer.children[0].textContent).toContain('New Task');
-    expect(window.location.href).toBe('details.html');
   });
 
   test('saveData should save the list to localStorage', () => {
@@ -98,7 +91,7 @@ describe('To-Do List App', () => {
   test('Clicking on delete button should remove the task', () => {
     inputBox.value = 'New Task';
     addTask();
-    const deleteButton = listContainer.querySelector('deleteButton');
+    const deleteButton = document.querySelector("deletebutton");
     deleteButton.click();
     expect(listContainer.children.length).toBe(0);
   });
