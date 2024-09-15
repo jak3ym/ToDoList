@@ -4,7 +4,7 @@
   "main": "home.js",
   "scripts": {
     "build": "next build",
-    "test": "jest unit.test.js"
+    "test": "jest unittests"
   },
   "jest": {
     "testEnvironment": "jsdom"
@@ -16,5 +16,8 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
   }
 }

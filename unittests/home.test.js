@@ -9,10 +9,9 @@ document.body.innerHTML = `
 
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
-const addButton = document.getElementById("add-button");
 
 // Import the functions to be tested
-const { addTask, saveData, showList } = require('./home');
+const { addTask, saveData, showList } = require('../public/home');
 
 // Mock localStorage
 const localStorageMock = (() => {
